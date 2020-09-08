@@ -1,0 +1,5 @@
+package com.netflix.suporte.suporteservice.conf;
+
+public class SwaggerConfig {
+
+}

@@ -1,0 +1,18 @@
+package com.netflix.suporte.suporteservice.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.netflix.suporte.suporteservice.repository.ChamadosRepository;
+
+
+@RestController
+//@Api(value="chamados")
+
+public class ChamadosController {
+	
+	@Autowired
+	ChamadosRepository chamadosRepository;
+	
+
+}
