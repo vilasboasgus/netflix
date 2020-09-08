@@ -1,0 +1,43 @@
+package com.netflix.suporte.suporteservice.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Table(name = "chamados", schema = "suporte_netflix")
+@Entity
+
+public class Chamados implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idChamado")
+	private Integer idChamado; 
+	
+	@Column(name = "cpfPessoa")
+	private String cpfPessoa;
+	
+	@Column(name = "nomePessoa")
+	private String nomePessoa;
+	
+	@Column(name = "emailPessoa")
+	private String emailPessoa;
+	
+	@Column(name = "detalheChamado")
+	private String detalheChamado;
+	
+	@Column(name = "dataChamado")
+	private Date dataChamado;
+	
+	@Column(name = "idCategoria")
+	private Integer idCategoria;
+}

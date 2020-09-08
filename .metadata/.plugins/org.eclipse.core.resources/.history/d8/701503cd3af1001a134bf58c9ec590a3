@@ -1,0 +1,46 @@
+package com.netflix.suporte.suporteservice.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Table(name = "chamados", schema = "suporte_netflix")
+@Entity
+
+public class Chamados implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idChamado")
+	@Getter private Integer idChamado; 
+	
+	@Column(name = "cpfPessoa")
+	@Getter @Setter String cpfPessoa;
+	
+	@Column(name = "nomePessoa")
+	@Getter @Setter String nomePessoa;
+	
+	@Column(name = "emailPessoa")
+	@Getter @Setter String emailPessoa;
+	
+	@Column(name = "detalheChamado")
+	@Getter @Setter String detalheChamado;
+	
+	@Column(name = "dataChamado")
+	@Getter @Setter Date dataChamado;
+}

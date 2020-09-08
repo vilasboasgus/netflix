@@ -1,0 +1,13 @@
+package com.netflix.suporte.suporteservice.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Table(name = "chamados", schema = "suporte_netflix")
+@Entity
+
+public class Chamados implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
+}

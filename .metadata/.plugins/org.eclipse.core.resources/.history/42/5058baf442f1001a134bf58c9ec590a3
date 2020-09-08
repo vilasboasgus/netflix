@@ -1,0 +1,135 @@
+package com.netflix.suporte.suporteservice.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+@Table(name = "CHAMADOS", schema = "SUPORTE_NETFLIX")
+@Entity
+
+public class Chamados implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonIgnoreProperties
+	@Column(name = "IDCHAMADO")
+	private Integer idChamado; 
+	
+	@JsonProperty
+	@Column(name = "CPFPESSOA")
+	private String cpfPessoa;
+	
+	@JsonProperty
+	@Column(name = "NOMEPESSOA")
+	private String nomePessoa;
+	
+	@JsonProperty
+	@Column(name = "emailPessoa")
+	private String emailPessoa;
+	
+	@JsonProperty
+	@Column(name = "DETALHECHAMADO")
+	private String detalheChamado;
+	
+	@JsonProperty
+	@Column(name = "DATACHAMADO")
+	private Date dataChamado;
+	
+	@JsonProperty
+	@Column(name = "IDCATEGORIA")
+	private Integer idCategoria;
+
+	public Chamados() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Chamados(Integer idChamado, String cpfPessoa, String nomePessoa, String emailPessoa, String detalheChamado,
+			Date dataChamado, Integer idCategoria) {
+		super();
+		this.idChamado = idChamado;
+		this.cpfPessoa = cpfPessoa;
+		this.nomePessoa = nomePessoa;
+		this.emailPessoa = emailPessoa;
+		this.detalheChamado = detalheChamado;
+		this.dataChamado = dataChamado;
+		this.idCategoria = idCategoria;
+	}
+
+	@Override
+	public String toString() {
+		return "Chamados [idChamado=" + idChamado + ", cpfPessoa=" + cpfPessoa + ", nomePessoa=" + nomePessoa
+				+ ", emailPessoa=" + emailPessoa + ", detalheChamado=" + detalheChamado + ", dataChamado=" + dataChamado
+				+ ", idCategoria=" + idCategoria + "]";
+	}
+
+	public Integer getIdChamado() {
+		return idChamado;
+	}
+
+	public void setIdChamado(Integer idChamado) {
+		this.idChamado = idChamado;
+	}
+
+	public String getCpfPessoa() {
+		return cpfPessoa;
+	}
+
+	public void setCpfPessoa(String cpfPessoa) {
+		this.cpfPessoa = cpfPessoa;
+	}
+
+	public String getNomePessoa() {
+		return nomePessoa;
+	}
+
+	public void setNomePessoa(String nomePessoa) {
+		this.nomePessoa = nomePessoa;
+	}
+
+	public String getEmailPessoa() {
+		return emailPessoa;
+	}
+
+	public void setEmailPessoa(String emailPessoa) {
+		this.emailPessoa = emailPessoa;
+	}
+
+	public String getDetalheChamado() {
+		return detalheChamado;
+	}
+
+	public void setDetalheChamado(String detalheChamado) {
+		this.detalheChamado = detalheChamado;
+	}
+
+	public Date getDataChamado() {
+		return dataChamado;
+	}
+
+	public void setDataChamado(Date dataChamado) {
+		this.dataChamado = dataChamado;
+	}
+
+	public Integer getIdCategoria() {
+		return idCategoria;
+	}
+
+	public void setIdCategoria(Integer idCategoria) {
+		this.idCategoria = idCategoria;
+	}
+	
+	
+}
