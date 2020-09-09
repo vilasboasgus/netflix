@@ -1,5 +1,6 @@
 package com.netflix.filmes.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.netflix.filmes.model.Filme;
-import com.netflix.filmes.model.FilmeEntity;
+import com.netflix.filmes.model.PopularesDTO;
 import com.netflix.filmes.repository.FilmesRepository;
 
 @Service
@@ -21,33 +22,24 @@ public class QueryService implements IQueryService  {
 
     @Autowired
     EntityManagerFactory emf;
-
-    @Override
-    public List<Filme> JPQLQuery(String genero)
-    {
-        EntityManager em = emf.createEntityManager();
-        //em.getTransaction().begin( );
-
-        Query query = em.createQuery("Select f.id,f.titulo,g.descricao from tb_filmes f " 
-        		+ "inner join tb_generos g on f.idGenerod=g.id where g.descricao = :genero");
-        query.setParameter("genero", genero);
-        @SuppressWarnings("unchecked")
-        List<Filme> list =(List<Filme>)query.getResultList();
-        em.close();
-
-        return list;
-
-    }
-
-    public List<FilmeEntity> getFilmes()
-    {
-        return filmesRepository.findAll();
-    }
     
 
-    public List<FilmeEntity> getDetalhesFilme(Integer id){
-    	return filmesRepository.findAllById(id);
+    @SuppressWarnings("unchecked")
+	@Override
+    public List<PopularesDTO> getFilmesMaisVistosByCategoria()
+    {
+    	List<PopularesDTO> populares = new ArrayList<>();
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createQuery("SELECT f FROM MaisVistosEntity mv inner join Filme f on mv.idFilme = f.idFilme");
+        List<Filme> resultList = query.getResultList();
+        for (Filme filme: resultList) {
+        	populares.add(new PopularesDTO(filme.getCategoria().getDescricao(),filme.getTitulo()));
+		}
+        em.close();
+        return populares;
+
     }
+
     
 
     		

@@ -1,10 +1,12 @@
 package com.netflix.filmes.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.netflix.filmes.model.PopularesDTO;
 import com.netflix.filmes.services.QueryService;
 
 import io.swagger.annotations.Api;
@@ -18,8 +20,8 @@ public class RelatoriosController {
     QueryService queryservice;
 	
 	@ApiOperation(value = "Lista de Filmes Mais Vistos Por Categoria")
-	@GetMapping(value = "/Filmes/Populares/Generos/{id_genero}")
-	public String getFilmes(@PathVariable Integer id_genero) {
-		return "";
+	@GetMapping(value = "/Filmes/Populares")
+	public List<PopularesDTO> getFilmes() {
+		return queryservice.getFilmesMaisVistosByCategoria();
 	}
 }

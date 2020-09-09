@@ -2,10 +2,12 @@ package com.netflix.filmes.services;
 
 import java.util.List;
 
-import com.netflix.filmes.model.Filme;
+import com.netflix.filmes.model.PopularesDTO;
 
 public interface IQueryService {
 
-	List<Filme> JPQLQuery(String genero);
+
+	List<PopularesDTO> getFilmesMaisVistosByCategoria();
+
 
 }

@@ -1,88 +1,111 @@
 package com.netflix.filmes.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Table(name = "tb_filmes")
+@Entity
 public class Filme {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_filme")
+	Integer idFilme;
 
-	@JsonProperty
-	Integer id;
-	@JsonProperty
+	@Column(name = "titulo")
 	String titulo;
-	@JsonProperty
+	
+	@Column(name = "ano")
 	Integer ano;
-	@JsonProperty
+	
+	@Column(name = "diretor")
 	String diretor;
-	@JsonProperty
-	Integer duracaoMinutos;
-	@JsonProperty
+	
+	@Column(name = "duracao")
+	Integer duracao;
+	
+	
+	@Column(name = "idioma")
 	String idioma;
-	@JsonProperty
+	
+	@Column(name = "sinopse")
 	String sinopse;
-	@JsonProperty
-	String genero;
-	
-	
-	
-	public Filme(Integer id, String titulo, Integer ano, String diretor, Integer duracaoMinutos, String idioma,
-			String sinopse, String genero) {
-		super();
-		this.id = id;
-		this.titulo = titulo;
-		this.ano = ano;
-		this.diretor = diretor;
-		this.duracaoMinutos = duracaoMinutos;
-		this.idioma = idioma;
-		this.sinopse = sinopse;
-		this.genero = genero;
+
+    @OneToOne(mappedBy = "filme")
+    private Categoria categoria;
+
+    
+
+	public Integer getIdFilme() {
+		return idFilme;
 	}
-	public Integer getId() {
-		return id;
+
+	public void setIdFilme(Integer idFilme) {
+		this.idFilme = idFilme;
 	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+
 	public String getTitulo() {
 		return titulo;
 	}
+
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+
 	public Integer getAno() {
 		return ano;
 	}
+
 	public void setAno(Integer ano) {
 		this.ano = ano;
 	}
+
 	public String getDiretor() {
 		return diretor;
 	}
+
 	public void setDiretor(String diretor) {
 		this.diretor = diretor;
 	}
-	public Integer getDuracaoMinutos() {
-		return duracaoMinutos;
+
+	public Integer getDuracao() {
+		return duracao;
 	}
-	public void setDuracaoMinutos(Integer duracaoMinutos) {
-		this.duracaoMinutos = duracaoMinutos;
+
+	public void setDuracao(Integer duracao) {
+		this.duracao = duracao;
 	}
+
 	public String getIdioma() {
 		return idioma;
 	}
+
 	public void setIdioma(String idioma) {
 		this.idioma = idioma;
 	}
+
 	public String getSinopse() {
 		return sinopse;
 	}
+
 	public void setSinopse(String sinopse) {
 		this.sinopse = sinopse;
 	}
-	public String getGenero() {
-		return genero;
+
+	public Categoria getCategoria() {
+		return categoria;
 	}
-	public void setGenero(String genero) {
-		this.genero = genero;
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
-	
-	
+
+
 }
