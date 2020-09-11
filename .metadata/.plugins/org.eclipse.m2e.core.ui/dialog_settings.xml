@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\patri\Desktop\Tadeu\workspace\suporte-service"/>
 			<item value="C:\Users\patri\Desktop\Tadeu\workspace\config-server"/>
 		</list>
 		<list key="projectNameTemplate">
