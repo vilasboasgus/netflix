@@ -11,6 +11,7 @@ import com.netflix.suporte.suporteservice.model.Categoria;
 import com.netflix.suporte.suporteservice.model.Chamados;
 import com.netflix.suporte.suporteservice.repository.CategoriaRepository;
 import com.netflix.suporte.suporteservice.repository.ChamadosRepository;
+import com.netflix.suporte.suporteservice.service.ChamadosService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,6 +29,9 @@ public class ChamadosController {
 	@Autowired
 	CategoriaRepository categoriaRepository;
 	
+	@Autowired
+	ChamadosService chamadosService;
+	
 	@ApiOperation(value = "Lista todas as categorias cadastradas")
 	@GetMapping(value = "/categorias")
 	public Iterable<Categoria> all() {
@@ -37,6 +41,7 @@ public class ChamadosController {
 	@ApiOperation(value = "Cadastrar um novo chamado para suporte")
 	@PostMapping(value = "/chamados")
 	public Chamados createChamados(@RequestBody Chamados chamados) {
+		chamadosService.updatestatus(chamados);
 		return chamadosRepository.save(chamados);
 	}
 
