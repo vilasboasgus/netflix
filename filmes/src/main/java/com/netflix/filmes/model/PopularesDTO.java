@@ -9,6 +9,9 @@ public class PopularesDTO {
 
 	@JsonProperty("filme")
 	String filme;
+	
+	@JsonProperty("mensagem")
+	String mensagem;
 
 	public String getCategoria() {
 		return categoria;
@@ -26,11 +29,22 @@ public class PopularesDTO {
 		this.filme = filme;
 	}
 
-	public PopularesDTO(String categoria, String filme) {
+
+	public String getMensagem() {
+		return mensagem;
+	}
+
+	public void setMensagem(String mensagem) {
+		this.mensagem = mensagem;
+	}
+
+	public PopularesDTO(String categoria, String filme, String mensagem) {
 		super();
 		this.categoria = categoria;
 		this.filme = filme;
+		this.mensagem = mensagem;
 	}
+	
 	
 	
 	

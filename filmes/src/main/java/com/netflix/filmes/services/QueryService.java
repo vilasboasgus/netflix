@@ -33,7 +33,7 @@ public class QueryService implements IQueryService  {
         Query query = em.createQuery("SELECT f FROM MaisVistosEntity mv inner join Filme f on mv.idFilme = f.idFilme");
         List<Filme> resultList = query.getResultList();
         for (Filme filme: resultList) {
-        	populares.add(new PopularesDTO(filme.getCategoria().getDescricao(),filme.getTitulo()));
+        	populares.add(new PopularesDTO(filme.getCategoria().getDescricao(),filme.getTitulo(),null));
 		}
         em.close();
         return populares;
