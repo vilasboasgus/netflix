@@ -10,4 +10,6 @@ public interface UsuariosRepository extends JpaRepository<UsuarioEntity, Integer
    
 	@Override
     public List<UsuarioEntity> findAll();
+
+	public List<UsuarioEntity> findByIdUsuario(Integer id_usuario);
 }
