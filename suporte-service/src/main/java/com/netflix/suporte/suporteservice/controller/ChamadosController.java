@@ -23,10 +23,10 @@ import io.swagger.annotations.ApiOperation;
 public class ChamadosController {
 	
 	@Autowired
-	ChamadosRepository chamadosRepository;
+	CategoriaRepository categoriaRepository;
 	
 	@Autowired
-	CategoriaRepository categoriaRepository;
+	ChamadosRepository chamadosRepository;
 	
 	@ApiOperation(value = "Lista todas as categorias cadastradas")
 	@GetMapping(value = "/categorias")

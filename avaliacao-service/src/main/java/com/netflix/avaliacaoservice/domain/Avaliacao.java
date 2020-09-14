@@ -1,75 +1,59 @@
 package com.netflix.avaliacaoservice.domain;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.sql.Timestamp;
 
 @Table(name = "USUARIO_AVALIA_FILME")
 @Entity
-
-public class Avaliacao implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
+@IdClass(AvaliacaoId.class)
+public class Avaliacao {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "IDAVALIACAO")
-	@JsonProperty("idAvaliacao")
-	Integer idAvaliacao;
+	@Column(name = "IDFILMED")
+	@JsonProperty("idFilmeD")
+	Integer idFilmeD;
 	
-	@Column(name = "IDUSUARIO")
-	@JsonProperty("idUsuario")
-	Integer idUsuario;	
+	@Id
+	@Column(name = "IDUSUARIOD")
+	@JsonProperty("idUsuarioD")
+	Integer idUsuarioD;	
 
-	@Column(name = "IDFILME")
-	@JsonProperty("idFilme")
-	Integer idFilme;	
+	@Column(name = "NOTA")
+	@JsonProperty("nota")
+	Integer nota;
 
-	@Column(name = "TIMESTAMPAVALIACAO")
-	@JsonProperty("timestampAvaliacao")
-	Timestamp timestampAvaliacao;
-	
-	@Column(name = "AVALIACAO")
-	@JsonProperty("avaliacao")
-	Integer avaliacao;
-	
-	public Avaliacao() {
-		super();
+	public Integer getIdFilmeD() {
+		return idFilmeD;
 	}
 
-	public Avaliacao(Integer idAvaliacao, Integer idUsuario, Integer idFilme, Timestamp timestampAvaliacao, Integer avaliacao ) {
-		super();
-		this.idAvaliacao = idAvaliacao;
-		this.idUsuario = idUsuario;
-		this.idFilme = idFilme;
-		this.timestampAvaliacao = timestampAvaliacao;
-		this.avaliacao = avaliacao;
+	public Integer getIdUsuarioD() {
+		return idUsuarioD;
 	}
-	
-	public void setidAvaliacao(Integer idAvaliacao) {
-		this.idAvaliacao = idAvaliacao;
-	}	
 
-	public void setidUsuario(Integer idUsuario) {
-		this.idUsuario = idUsuario;
-	}	
-
-	public void setidFilme(Integer idFilme) {
-		this.idFilme = idFilme;
-	}	
-
-	public void settimestampAvaliacao(Timestamp timestampAvaliacao) {
-		this.timestampAvaliacao = timestampAvaliacao;
-	}	
-
-	public void setavaliacao(Integer avaliacao) {
-		this.avaliacao = avaliacao;
+	public Integer getNota() {
+		return nota;
 	}
+
+	public void setIdFilmeD(Integer idFilmeD) {
+		this.idFilmeD = idFilmeD;
+	}
+
+	public void setIdUsuarioD(Integer idUsuarioD) {
+		this.idUsuarioD = idUsuarioD;
+	}
+
+	public void setNota(Integer nota) {
+		if (nota < 1 || nota >5) {
+			System.out.println("nota deve estar entre 1 e 5");
+		} else {
+		this.nota = nota;
+		}
+	}	
+
 
 }

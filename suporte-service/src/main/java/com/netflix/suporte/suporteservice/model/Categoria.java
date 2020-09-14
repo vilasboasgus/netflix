@@ -27,14 +27,14 @@ public class Categoria implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Column(name = "CATEGORIA")
+	@JsonProperty
+	@Getter @Setter private String categoria; 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "IDCATEGORIA")
 	@JsonProperty
-	@Getter @Setter private Integer idCategoria; 
-	
-	@Column(name = "CATEGORIA")
-	@JsonProperty
-	@Getter @Setter private String categoria;
+	@Getter @Setter private Integer idCategoria;
 
 }

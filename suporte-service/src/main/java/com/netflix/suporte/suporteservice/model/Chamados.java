@@ -30,34 +30,34 @@ public class Chamados implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@JsonIgnore
-	@Column(name = "IDCHAMADO")
-	@Getter private Integer idChamado; 
-	
 	@JsonProperty
 	@Column(name = "CPFPESSOA")
-	@Getter @Setter private String cpfPessoa;
-	
-	@JsonProperty
-	@Column(name = "NOMEPESSOA")
-	@Getter @Setter private String nomePessoa;
-	
-	@JsonProperty
-	@Column(name = "EMAILPESSOA")
-	@Getter @Setter private String emailPessoa;
-	
-	@JsonProperty
-	@Column(name = "DETALHECHAMADO")
-	@Getter @Setter private String detalheChamado;
+	@Getter @Setter private String cpfPessoa; 
 	
 	@JsonProperty
 	@Column(name = "DATACHAMADO")
 	@Getter @Setter private Date dataChamado;
 	
 	@JsonProperty
+	@Column(name = "DETALHECHAMADO")
+	@Getter @Setter private String detalheChamado;
+	
+	@JsonProperty
+	@Column(name = "EMAILPESSOA")
+	@Getter @Setter private String emailPessoa;
+	
+	@JsonProperty
 	@Column(name = "IDCATEGORIA")
 	@Getter @Setter private Integer idCategoria;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonIgnore
+	@Column(name = "IDCHAMADO")
+	@Getter private Integer idChamado;
+	
+	@JsonProperty
+	@Column(name = "NOMEPESSOA")
+	@Getter @Setter private String nomePessoa;
 	
 }
