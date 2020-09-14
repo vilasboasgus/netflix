@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.netflix.usuarios.models.UsuarioEntity;
@@ -21,7 +22,13 @@ public class UsuarioController {
 	
 	@ApiOperation(value = "Lista de Usuarios")
 	@GetMapping(value = "/usuarios")
-	public List<UsuarioEntity> getFilmes() {
+	public List<UsuarioEntity> getUsuarios() {
 		return usuariosRepository.findAll();
+	}
+	
+	@ApiOperation(value = "Detalhe Usuario")
+	@GetMapping(value = "/usuarios/{id_usuario}")
+	public List<UsuarioEntity> getUsuarioDetalhe(@PathVariable Integer id_usuario) {
+		return usuariosRepository.findByIdUsuario(id_usuario);
 	}
 }
