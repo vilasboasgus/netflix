@@ -1,7 +1,0 @@
-package com.netflix.suporte.suporteservice.repository;
-
-import org.springframework.data.repository.CrudRepository;
-
-public interface ChamadosRepository extends CrudRepository<Chamados, Integer> {
-
-}

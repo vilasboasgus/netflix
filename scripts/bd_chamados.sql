@@ -29,3 +29,4 @@ from chamados;
 
 -- inserindo dados na tabela de categoria
 insert into categoria (categoria) values ('Assinante'), ('Nao Assinante'), ('Tecnico'), ('Outros');
+insert into categoria (categoria) values ('Financeiro');

@@ -9,13 +9,15 @@ import org.springframework.stereotype.Service;
 import com.netflix.suporte.suporteservice.model.Chamados;
 
 @Service
-@EnableBinding(Source.class)
+//@EnableBinding(Source.class)
 public class ChamadosService {
 
+	/*
 	@Autowired
 	private Source source;
 	
 	public void updatestatus(Chamados chamados) {
 		source.output().send(MessageBuilder.withPayload(chamados).build());
 	}
+	*/
 }
