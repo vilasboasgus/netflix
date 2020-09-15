@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -25,6 +27,8 @@ public class Avaliacao {
 
 	@Column(name = "NOTA")
 	@JsonProperty("nota")
+	@Min(value = 1, message = "Nota não pode ser menor que 1 ou maior que 5")
+	@Max(5)
 	Integer nota;
 
 	public Integer getIdFilmeD() {
@@ -48,12 +52,7 @@ public class Avaliacao {
 	}
 
 	public void setNota(Integer nota) {
-		if (nota < 1 || nota >5) {
-			System.out.println("nota deve estar entre 1 e 5");
-		} else {
 		this.nota = nota;
-		}
 	}	
-
 
 }
