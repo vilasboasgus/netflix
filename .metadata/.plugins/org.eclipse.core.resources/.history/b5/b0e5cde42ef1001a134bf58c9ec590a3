@@ -1,5 +1,0 @@
-package com.netflix.suporte.suporteservice.repository;
-
-public interface ChamadosRepository extends CrudRepository<FilmeEntity, Integer> {
-
-}
